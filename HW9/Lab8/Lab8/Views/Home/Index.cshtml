@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<head> </head>
+<link rel="stylesheet" href="~/Content/bootstrap.css" />
+
+<body id="homeBody">
+    <h1>Oregon State Track</h1>
+    <p>Keep track of all of your athletes with this stat tracker. Add Athletes, Race Times, and Events to the database. <br />
+    You can also choose a specific athlete, and view all of their results on a single page.</p><br /><br /><br />
+   
+        <div class="row">
+            <div class="col-md-3">
+                <div id="firstbox">
+                    <h4>Athletes</h4>
+                    <a><img src="http://www.aljanh.net/data/archive/img/2056443208.png" style="width:100px" height:100px /></a><br />
+                    <h4>@Html.ActionLink("Create Athlete", "Create", "Athletes") </h4>
+                    <h4> @Html.ActionLink("View Athletes", "Index", "Athletes")</h4>
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div id="firstbox">
+                    <h4>Results</h4>
+                    <a><img src="http://www.aljanh.net/data/archive/img/2056443208.png" style="width:100px" height:100px /></a><br />
+                    <h4>@Html.ActionLink("Add a Result", "Create", "Results")</h4>
+                    <h4>@Html.ActionLink("View Results", "Index", "Results")</h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div id="firstbox">
+                    <h4>Individual Results</h4>
+                    <a><img src="http://www.aljanh.net/data/archive/img/2056443208.png" style="width:100px" height:100px /></a><br />
+                    <h4>@Html.ActionLink("View an Individual Result", "Create", "athResult")</h4>
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div id="firstbox">
+                    <h4>Locations</h4>
+                    <a><img src="http://www.aljanh.net/data/archive/img/2056443208.png" style="width:100px" height:100px /></a><br />
+                    <h4>@Html.ActionLink("Add a Location", "Create", "LocationDetails")</h4>
+                    <h4>@Html.ActionLink("View Locations", "Index", "LocationDetails")</h4>
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div id="firstbox">
+                    <h4>Choose a Team</h4>
+                    <a><img src="http://www.aljanh.net/data/archive/img/2056443208.png" style="width:100px" height:100px /></a><br />
+                    <h4>@Html.ActionLink("Graph Page", "Create", "graph")</h4>
+                    
+
+                </div>
+            </div>
+
+        </div>
+</body>

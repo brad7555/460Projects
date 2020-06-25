@@ -1,0 +1,78 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Color Interpolation</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    
+</head>
+
+<body>
+    <h1>Interpolate from one color to another</h1>
+    <h5>Please enter colors in HTML hexadecimal format: #AABBCC</h5>
+    <div class="row">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Index1", "Color", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.Label("color1", "First Color")
+                    @Html.TextBox("color1", Request["color1"], new { @class = "form-control" , type = "string", pattern = @"#(?:[0-9a-fA-F]{3}){1,2}$"})
+                    @Html.Label("color2", "Second Color")
+                    @Html.TextBox("color2", Request["color2"], new { @class = "form-control", type = "string", pattern = @"#(?:[0-9a-fA-F]{3}){1,2}$" })
+                    @Html.Label("Numcol", "Number Of Colors")
+                    @Html.TextBox("Numcol", Request["Numcol"], new { @class = "form-control", type = "number",value = "0" })
+
+
+                    <button type="submit" class="btn-primary">Enter</button>
+                </div>
+                
+            }
+        </div>
+        <div class="col-md-3">
+            @{
+                if (ViewBag.List == null)
+                {
+
+                }
+                else
+                {
+                    foreach (var color in (IEnumerable<lab4.Controllers.ColorController.EndC>)ViewBag.List)
+                    {
+                        <ul>
+                            <li> @color.Col</li>
+                        </ul>
+
+                    }
+                }
+            }
+        </div>
+       
+        <div class="col-md-3" >
+            @{
+
+               
+                if (ViewBag.List == null)
+                {
+                    <div></div>
+                }
+                else
+                {
+
+                    foreach (var color in (IEnumerable<lab4.Controllers.ColorController.EndC>)ViewBag.List)
+                    {
+                        <div style="width: 200px;height:30px;border:0px; background-color: @color.Col;)"></div>
+                    }
+                }
+            }
+
+
+        </div>
+
+    </div>
+   
+   
+</body>
+</html>

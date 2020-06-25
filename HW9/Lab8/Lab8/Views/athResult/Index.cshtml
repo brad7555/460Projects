@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Lab8.Models.ViewModels.athleteResultModel>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body id="homeBody">
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-large" })
+        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-primary btn-large" })
+    </p>
+
+    <h2> @ViewBag.AthName </h2>
+    <table class="table">
+        <tr>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Race</th>
+            <th>Time</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.eventDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.eventLocation)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.eventName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.athleteResult)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

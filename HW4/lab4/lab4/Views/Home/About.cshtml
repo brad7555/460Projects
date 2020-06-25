@@ -1,0 +1,53 @@
+﻿<link rel="stylesheet" href="bootstrap.css" /> 
+
+@{
+    ViewBag.Title = "Numbers to Hex";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+@{ 
+    int redhex = Convert.ToInt32(Request["firstcolor"]);
+    int greenhex = Convert.ToInt32(Request["secondcolor"]);
+    int bluehex = Convert.ToInt32(Request["thirdcolor"]);
+    string hexvalue = "#" + redhex.ToString("X2") + greenhex.ToString("X2") + bluehex.ToString("X2");
+    ViewBag.hex = hexvalue;
+}
+
+
+<p>Use this area to provide additional information.</p>
+
+<div class="row">
+    <div class="col-lg-2">
+        @using (Html.BeginForm("About", "Home", FormMethod.Get))
+        {
+            <div class="form-group">
+                @Html.Label("firstcolor", "R")
+                @Html.TextBox("firstcolor", Request["firstcolor"], new { @class = "form-control", type = "number" })
+                @Html.Label("secondcolor", "G")
+                @Html.TextBox("secondcolor", Request["secondcolor"], new { @class = "form-control", type = "number" })
+                @Html.Label("thirdcolor", "B")
+                @Html.TextBox("thirdcolor", Request["thirdcolor"], new { @class = "form-control", type = "number" })
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        }
+    </div>
+    <div class="col-lg-2" style="float:right">
+        <div style="width: 200px;height:200px;border:1px solid #000;background-color: rgb(@Request["firstcolor"],@Request["secondcolor"],@Request["thirdcolor"])">
+
+        </div>
+        @ViewBag.hex
+        <p>
+          
+           
+
+              
+            
+        </p>
+
+    </div>
+   
+</div>
+
+

@@ -1,0 +1,71 @@
+﻿@using Lab7.Models
+
+<link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap.js" />
+
+
+@model List<Repos>
+
+@{var prod = (Person)ViewData["myPerson"];
+
+}
+<body id="myBody">
+    <div id="firstBox">
+        <div class="row">
+            <div class="col-lg-4"><img id="picture" src="@prod.avatar_url" /></div>
+            <div id="topBoxRight" class="col-md-7">
+
+                <h3>@prod.name</h3>
+                <br />
+                <a href="@prod.html_url">@prod.login</a>
+                <br />
+                <span>@prod.email</span>
+                <br />
+                <span>Western Oregon University</span>
+                <br />
+                <span>Monmouth, OR</span>
+                
+            </div>
+        </div>
+    </div>
+    <h2>Repositories</h2>
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4">
+                <div id="secondBox">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h4>@item.name</h4>
+
+                            <a href="@item.owner.html_url">@item.owner.login</a>
+                            <br />
+                            <span>Last Updated: @item.updated_at</span>
+                            <br />
+                            <button onclick="myFunction('@item.owner.login','@item.name')">commits</button><br><br />
+
+                            <br />
+                        </div>
+                        <div class="col-md-3">
+                            <img height="50" width="50" id="picture1" src="@item.owner.avatar_url" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+    </div>
+</body>
+<div id="commitsTable">
+    <table id="commits1"></table>
+</div>
+
+
+
+
+@section scripts {
+    <script src="~/Scripts/main.js"></script>
+}
+

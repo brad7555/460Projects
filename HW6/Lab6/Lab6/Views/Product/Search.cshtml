@@ -1,0 +1,44 @@
+﻿@model List<Lab6.Models.StockItem>
+
+<link rel="stylesheet" href="~/Content/bootstrap.css" />
+
+
+@{ ViewBag.Title = "Enter an item to search for. ";}
+
+<h2>Enter an item to search for</h2>
+<div class="row">
+    @using (Html.BeginForm("Search", "Product", FormMethod.Get))
+    {
+        <div class="row"></div>
+        <div class="col-md-6">
+
+            @Html.Label("item", "Item to search")
+            @Html.TextBox("item", Request["item"], new { @class = "form-control", type = "string" })
+
+
+            <button type="submit" class="btn-primary">Search</button>
+
+
+
+        </div>
+    }
+
+
+
+</div>
+<table class="table">
+    <tbody>
+        @foreach (var my in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(my.StockItemName, "Details", "Product",
+               new { name = my.StockItemName }, htmlAttributes: null
+             
+               )
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

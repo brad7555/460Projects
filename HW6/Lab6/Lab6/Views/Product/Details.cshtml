@@ -1,0 +1,103 @@
+﻿@model Lab6.Models.ViewModels.ProductDetailsViewModel
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Stock Item Details</h3>
+            <table>
+                <tr>
+                    <th>Stock Item</th>
+                    <td>@Html.DisplayFor(model => model.StockItemName)</td>
+                </tr>
+                <tr>
+                    <th>Stock Item ID</th>
+                    <td>@Html.DisplayFor(model => model.StockItemID)</td>
+                </tr>
+                <tr>
+                    <th>Item Size</th>
+                    <td> @Html.DisplayFor(model => model.Size)</td>
+                </tr>
+                <tr>
+                    <th>Retail Price</th>
+                    <td>@Html.DisplayFor(model => model.RecommendedRetailPrice)</td>
+                </tr>
+                <tr>
+                    <th>Weight Per Unit</th>
+                    <td>@Html.DisplayFor(model => model.TypicalWeightPerUnit)</td>
+                </tr>
+                <tr>
+                    <th>Valid From Date</th>
+                    <td>@Html.DisplayFor(model => model.ValidFrom)</td>
+                </tr>
+
+                <tr>
+                    <th>Size</th>
+                    <td> @Html.DisplayFor(model => model.Size)</td>
+                </tr>
+                <tr>
+                    <th>Lead Time Days</th>
+                    <td> @Html.DisplayFor(model => model.LeadTimeDays)</td>
+                </tr>
+                <tr>
+                    <th>Valid From</th>
+                    <td>@Html.DisplayFor(model => model.ValidFrom)</td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h3>Sales History Summary</h3>
+            <table>
+                <tr>
+                    <th>Orders</th>
+                    <td>@Html.DisplayFor(model => model.Quantity)</td>
+                </tr>
+                <tr>
+                    <th>Gross Sales</th>
+                    <td> @Html.DisplayFor(model => model.GrossSales)</td>
+                </tr>
+                <tr>
+                    <th>Gross Profit</th>
+                    <td>@Html.DisplayFor(model => model.GrossProfit)</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Supplier Profile</h3>
+        <table>
+            <tr>
+                <th>Company</th>
+                <td>@Html.DisplayFor(model => model.SupplierName)</td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td>@Html.DisplayFor(model => model.PhoneNumber)</td>
+            </tr>
+            <tr>
+                <th>Fax Number</th>
+                <td>@Html.DisplayFor(model => model.FaxNumber)</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td>@Html.DisplayFor(model => model.WebsiteURL)</td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>@Html.DisplayFor(model => model.FullName)</td>
+            </tr>
+        </table>
+        <div class="col-md-4">
+            <h4>Stock Photo</h4>
+            <img src="" class="img-fluid" width="250" height="250" />
+        </div>
+    </div>
+   
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
